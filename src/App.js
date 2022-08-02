@@ -9,6 +9,7 @@ function App() {
   const html5QrCode = new Html5Qrcode("bro");
   const qrCodeSuccessCallback = (decodedText, decodedResult) => {
     /* handle success */
+    window.open("www.google.com", "_blank");
     console.log("hei");
   };
   const config = { fps: 10, qrbox: { width: 250, height: 250 } };
