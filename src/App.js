@@ -38,6 +38,7 @@ function App() {
     <div>
       {/* <video ref={inputEl}></video> */}
       <video
+        playsInline
         onLoadedMetadata={() => {
           console.log("hei");
         }}
