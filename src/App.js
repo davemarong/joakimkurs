@@ -19,7 +19,7 @@ function App() {
 
   const inputEl = useRef(null);
   const constraints = {
-    video: true,
+    video: { facingMode: "environment" },
   };
   navigator.mediaDevices
     .getUserMedia(constraints)
