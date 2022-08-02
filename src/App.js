@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef } from "react";
 
 function App() {
   // const [data, setData] = useState("No result");
