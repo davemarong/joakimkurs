@@ -1,14 +1,16 @@
+import { useEffect, useState } from "react";
 import { Html5Qrcode } from "html5-qrcode";
-import React, { useEffect } from "react";
 
-const Qrstuff = () => {
+const useLoadQRScan = () => {
+  const [urlname, setUrlname] = useState("nope");
+
   useEffect(() => {
     // Put the "reader" div element in react app. Its currently hardcoded in the public index.html
-    const html5QrCode = new Html5Qrcode("bro");
+    const html5QrCode = new Html5Qrcode("qrReader");
     const qrCodeSuccessCallback = (decodedText, decodedResult) => {
       /* handle success */
       // window.open("www.google.com", "_blank");
-      // setUrlname(decodedText);
+      setUrlname(decodedText);
       console.log("hei");
     };
     const config = { fps: 10, qrbox: { width: 250, height: 250 } };
@@ -20,8 +22,7 @@ const Qrstuff = () => {
       qrCodeSuccessCallback
     );
   }, []);
-
-  return <div></div>;
+  return urlname;
 };
 
-export default Qrstuff;
+export default useLoadQRScan;
