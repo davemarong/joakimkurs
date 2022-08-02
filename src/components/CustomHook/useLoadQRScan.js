@@ -6,10 +6,9 @@ const useLoadQRScan = () => {
 
   useEffect(() => {
     // Put the "reader" div element in react app. Its currently hardcoded in the public index.html
-    const html5QrCode = new Html5Qrcode("qrReader");
+    const html5QrCode = new Html5Qrcode("hei");
     const qrCodeSuccessCallback = (decodedText, decodedResult) => {
       /* handle success */
-      // window.open("www.google.com", "_blank");
       setUrlname(decodedText);
       console.log("hei");
     };
