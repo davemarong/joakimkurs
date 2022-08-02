@@ -40,6 +40,7 @@ class Html5QrcodePlugin extends React.Component {
 
         // Suceess callback is required.
         if (!(this.props.qrCodeSuccessCallback )) {
+            // eslint-disable-next-line no-throw-literal
             throw "qrCodeSuccessCallback is required callback.";
         }
 

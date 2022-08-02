@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "./components/Button/Button";
-import Camera from "./components/Camera/Camera";
+// import Camera from "./components/Camera/Camera";
 import Header from "./components/Header/Header";
 import Text from "./components/Text/Text";
 import Html5QrcodePlugin from "./Html5QrcodePlugin";
