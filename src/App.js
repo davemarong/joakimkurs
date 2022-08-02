@@ -1,9 +1,8 @@
-import React, { useRef } from "react";
+import React from "react";
 import Button from "./components/Button/Button";
 // import Camera from "./components/Camera/Camera";
 import Header from "./components/Header/Header";
 import Text from "./components/Text/Text";
-import Html5QrcodePlugin from "./Html5QrcodePlugin";
 import { Html5Qrcode } from "html5-qrcode";
 
 function App() {
