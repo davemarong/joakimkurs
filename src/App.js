@@ -1,23 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect, useRef } from "react";
 
 function App() {
+  // const [data, setData] = useState("No result");
+
+  // useEffect(() => {
+  //   const openMediaDevices = async (constraints) => {
+  //     return await navigator.mediaDevices.getUserMedia(constraints);
+  //   };
+
+  //   try {
+  //     const stream = openMediaDevices({ video: true, audio: true });
+  //     console.log("Got MediaStream:", stream);
+  //     setData(stream);
+  //   } catch (error) {
+  //     console.error("Error accessing media devices.", error);
+  //   }
+  // }, []);
+
+  const inputEl = useRef(null);
+  const constraints = {
+    video: true,
+  };
+  navigator.mediaDevices
+    .getUserMedia(constraints)
+    .then((mediaStream) => {
+      const video = document.querySelector("video");
+      video.srcObject = mediaStream;
+      video.onloadedmetadata = () => {
+        video.play();
+      };
+    })
+    .catch((err) => {
+      // always check for errors at the end.
+      console.error(`${err.name}: ${err.message}`);
+    });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* <video ref={inputEl}></video> */}
+      <video
+        onLoadedMetadata={() => {
+          console.log("hei");
+        }}
+        ref={inputEl}
+      />
+      Hei du
     </div>
   );
 }
