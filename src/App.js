@@ -1,50 +1,21 @@
-import React, { useRef } from "react";
+import React from "react";
+import Button from "./components/Button/Button";
+import Camera from "./components/Camera/Camera";
+import Header from "./components/Header/Header";
+import Text from "./components/Text/Text";
 
 function App() {
-  // const [data, setData] = useState("No result");
-
-  // useEffect(() => {
-  //   const openMediaDevices = async (constraints) => {
-  //     return await navigator.mediaDevices.getUserMedia(constraints);
-  //   };
-
-  //   try {
-  //     const stream = openMediaDevices({ video: true, audio: true });
-  //     console.log("Got MediaStream:", stream);
-  //     setData(stream);
-  //   } catch (error) {
-  //     console.error("Error accessing media devices.", error);
-  //   }
-  // }, []);
-
-  const inputEl = useRef(null);
-  const constraints = {
-    video: { facingMode: "environment", width: 200, height: 200 },
-  };
-  navigator.mediaDevices
-    .getUserMedia(constraints)
-    .then((mediaStream) => {
-      const video = document.querySelector("video");
-      video.srcObject = mediaStream;
-      video.onloadedmetadata = () => {
-        video.play();
-      };
-    })
-    .catch((err) => {
-      // always check for errors at the end.
-      console.error(`${err.name}: ${err.message}`);
-    });
   return (
-    <div>
-      {/* <video ref={inputEl}></video> */}
-      <video
-        playsInline
-        onLoadedMetadata={() => {
-          console.log("hei");
-        }}
-        ref={inputEl}
-      />
-      Hei du
+    <div
+      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+    >
+      <Text>
+        Gratulerer. Du har nå tatt kurs 1 - Brannsluknings apparat av
+        FireSafeWalk. Gå til neste stasjon: Brannalarm og scan qr-koden.
+      </Text>
+      <Header>Scan QR-kode</Header>
+      <Camera />
+      <Button>Neste</Button>
     </div>
   );
 }
